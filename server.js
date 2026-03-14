@@ -1,6 +1,7 @@
 require('dotenv').config()
 const express = require('express');
 const connectDB = require("./DB/Connection");
+const contactsRouter = require('./route/contacts')
 const cors = require("cors");
 const app = express();
 
@@ -10,7 +11,7 @@ app.use(express.json({extended:false}))
 
 app.use(cors())
 app.use('/api/userModel',require('./Api/User'));
-
+app.use('/contacts', contactsRouter)
 
 app.get("/professional", (req, res) => {
   const data = {
