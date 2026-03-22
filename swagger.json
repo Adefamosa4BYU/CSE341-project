@@ -101,6 +101,36 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "type": "string",
+                  "example": "Jane"
+                },
+                "lastName": {
+                  "type": "string",
+                  "example": "Doe"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "jane@email.com"
+                },
+                "favoriteColor": {
+                  "type": "string",
+                  "example": "Red"
+                },
+                "birthday": {
+                  "type": "string",
+                  "example": "1995-08-15"
+                }
+              }
+            }
           }
         ],
         "responses": {
