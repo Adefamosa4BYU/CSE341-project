@@ -111,11 +111,11 @@
               "properties": {
                 "firstName": {
                   "type": "string",
-                  "example": "Jane"
+                  "example": "Kunle"
                 },
                 "lastName": {
                   "type": "string",
-                  "example": "Doe"
+                  "example": "Jan"
                 },
                 "email": {
                   "type": "string",
@@ -123,7 +123,7 @@
                 },
                 "favoriteColor": {
                   "type": "string",
-                  "example": "Red"
+                  "example": "Blue"
                 },
                 "birthday": {
                   "type": "string",
