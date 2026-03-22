@@ -111,23 +111,23 @@
               "properties": {
                 "firstName": {
                   "type": "string",
-                  "example": "Kunle"
+                  "example": "..."
                 },
                 "lastName": {
                   "type": "string",
-                  "example": "Jan"
+                  "example": "..."
                 },
                 "email": {
                   "type": "string",
-                  "example": "jane@email.com"
+                  "example": "...@mail.com"
                 },
                 "favoriteColor": {
                   "type": "string",
-                  "example": "Blue"
+                  "example": "..."
                 },
                 "birthday": {
                   "type": "string",
-                  "example": "1995-08-15"
+                  "example": "YYYY-MM-DD"
                 }
               }
             }
