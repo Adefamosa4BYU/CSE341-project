@@ -1,0 +1,67 @@
+### =========================
+### BASE URL (LOCAL)
+### =========================
+@baseUrl = http://localhost:8080
+
+### =========================
+### GET ALL CONTACTS
+### =========================
+GET {{baseUrl}}/contacts/
+
+### =========================
+### GET SINGLE CONTACT
+### =========================
+GET {{baseUrl}}/contacts/69beeb74eef48dd408b5fb13
+
+### =========================
+### CREATE CONTACT (VALID)
+### =========================
+POST {{baseUrl}}/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Ade",
+  "lastName": "Famosa",
+  "email": "ade@example.com",
+  "favoriteColor": "Black",
+  "birthday": "2000-01-01"
+}
+
+### =========================
+### CREATE CONTACT (INVALID - Missing Fields)
+### =========================
+POST {{baseUrl}}/contacts
+Content-Type: application/json
+
+{
+  "firstName": "OnlyName"
+}
+
+### =========================
+### UPDATE CONTACT (PARTIAL)
+### =========================
+PUT {{baseUrl}}/contacts/69beeb74eef48dd408b5fb13
+Content-Type: application/json
+
+{
+  "favoriteColor": "Blue"
+}
+
+### =========================
+### UPDATE CONTACT (FULL)
+### =========================
+PUT {{baseUrl}}/contacts/69beeb74eef48dd408b5fb13
+Content-Type: application/json
+
+{
+  "firstName": "Updated",
+  "lastName": "User",
+  "email": "updated@example.com",
+  "favoriteColor": "Green",
+  "birthday": "1999-12-12"
+}
+
+### =========================
+### DELETE CONTACT
+### =========================
+DELETE {{baseUrl}}/contacts/69beeb74eef48dd408b5fb13

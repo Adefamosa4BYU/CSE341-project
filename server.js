@@ -1,7 +1,9 @@
 require('dotenv').config()
 const express = require('express');
 const connectDB = require("./DB/Connection");
-const contactsRouter = require('./route/contacts')
+const userApi = require("./controllers/User")
+const bodyParser = require('body-parser')
+const contactsRouter = require('./routes/contacts')
 const cors = require("cors");
 const app = express();
 
@@ -9,8 +11,23 @@ connectDB();
 
 app.use(express.json({extended:false}))
 
+// parse various different custom JSON types as JSON
+app.use(bodyParser.json({ type: 'application/*+json' }));
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept, Z-Key'
+  );
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  next();
+});
+
+
 app.use(cors())
-app.use('/api/userModel',require('./Api/User'));
+app.use('/', require('./routes/swagger'));
+app.use('/api/userModel', userApi);
+//#swagger.tags=['Contact']
 app.use('/contacts', contactsRouter)
 
 app.get("/professional", (req, res) => {
@@ -51,7 +68,6 @@ app.get("/api/data", (req, res) => {
   res.json(data)
 
 })
-
 
 const Port = process.env.Port || 8080;
 
